@@ -27,3 +27,15 @@ one-paragraph justification BEFORE making the change.
   cannot hold; the test cases are the acceptance criteria, so per-shot
   depth is 1 quarter (tier 4: 2 quarters). The swath stays 4 quarters wide.
 - Call sites updated: none (value change only, no consumers yet)
+
+### 2026-07-04 · TS-014 adds src/systems/flow.js (not in the plan's file tree)
+
+- Change: new module `src/systems/flow.js` for the session flow
+  (resolveStage, progression, tally, stage lifecycle driver)
+- Justification: The plan's structure puts the state machine in
+  core/state.js (owned by TS-003) and screens in screens/, but gives
+  TS-014's session-flow logic no file of its own. Folding it into
+  state.js would mean refactoring a TS-003-owned module; folding it
+  into main.js would make it untestable. A sibling system module keeps
+  ownership boundaries intact.
+- Call sites updated: none (new module)
