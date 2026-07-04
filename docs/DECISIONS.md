@@ -18,4 +18,12 @@ one-paragraph justification BEFORE making the change.
 
 ## Entries
 
-(none yet)
+### 2026-07-04 · TS-004 resolves a spec conflict in brick damage depth
+
+- Change: `CONFIG.tank.player.brickDepthByTier` [null,2,2,2,4] -> [null,1,1,1,2]
+- Justification: Plan section 2 says a bullet removes a "2-quarter-deep"
+  swath, but the TS-004 acceptance tests require 4 same-column shots to
+  breach a one-block wall (4 quarters deep) and 2 shots at tier 4. Both
+  cannot hold; the test cases are the acceptance criteria, so per-shot
+  depth is 1 quarter (tier 4: 2 quarters). The swath stays 4 quarters wide.
+- Call sites updated: none (value change only, no consumers yet)

@@ -50,7 +50,10 @@ export const CONFIG = deepFreeze({
       bulletSpeedByTier: [null, 192, 288, 288, 288],
       bulletCapByTier: [null, 1, 1, 2, 2],
       steelDestroyTier: 4,
-      brickDepthByTier: [null, 2, 2, 2, 4], // quarter-cells removed per hit
+      // Quarter-cells of brick removed per hit. A block is 4 quarters
+      // deep, so standard = 4 shots to breach, tier 4 = 2 shots
+      // (per the TS-004 acceptance tests; see docs/DECISIONS.md).
+      brickDepthByTier: [null, 1, 1, 1, 2],
       fireCooldown: 0.15,
       spawnInvulnerability: 3.0,
       spawnAnimDuration: 0.8,
